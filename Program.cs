@@ -1,61 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-
-namespace Vazifa
+using System.Text;
+class Car
 {
-    public enum Baholar
+    internal string CarName {get; set;}
+    internal string Model {get; set;}
+    internal decimal Price {get; set;}
+    internal Car(string name, string model, decimal price = 0m)
     {
-        Nol = 0,
-        Bir = 1,
-        Ikki = 2,
-        Uch = 3,
-        Tort = 4,
-        Besh = 5
+        CarName = name;
+        Model = model;
+        Price = price;
     }
-
-    class Program
+}
+class Program
+{
+    static void Main(string[] args)
     {
-        static void Main()
+        // cars data base
+        Car[] Cars =
         {
-            List<Oquvchi> oquvchilar = new List<Oquvchi>
-            {
-                new Oquvchi("O'quvchi 1", "I", 5, Baholar.Besh),
-                new Oquvchi("O'quvchi 2", "II", 6, Baholar.Tort),
-                new Oquvchi("O'quvchi 3", "III", 7, Baholar.Tort),
-                new Oquvchi("O'quvchi 4", "IV", 8, Baholar.Tort),
-                new Oquvchi("O'quvchi 5", "V", 9, Baholar.Uch),
-                new Oquvchi("O'quvchi 6", "VI", 7, Baholar.Uch),
-            };
+            new Car("Kia", "Picanto", 50000m),
+            new Car("Honda", "Civic", 60000m),
+            new Car("Toyota", "Corolla", 70000m)
+        };
 
-            Console.Write("Necha baho olgan o'quvchilarni ko'rmoqchisiz? >>> ");
-            int bahoInt = int.Parse(Console.ReadLine());
+        Console.WriteLine("Ikkita narx kiriting ($): ");
+        Console.Write("Birinchi narx: ");
+        decimal price1 = decimal.Parse(Console.ReadLine());
+        Console.Write("Ikkinchi narx: ");
+        decimal price2 = decimal.Parse(Console.ReadLine());
 
-            Console.WriteLine($"\'{bahoInt}\' baho olgan oq'uvchilar: ");
-            foreach (Oquvchi oquvchi in oquvchilar)
+        Console.WriteLine($"{price1} va {price2} narxli oraliqdagi mashinalar: ");
+        foreach (Car car in Cars)
+        {
+            if (car.Price >= price1 && car.Price <= price2)
             {
-                if ((int) oquvchi.Baho == bahoInt)
-                {
-                    Console.WriteLine($"Ismi: {oquvchi.Ism} {oquvchi.Familya}; ID'si: {oquvchi.Id}; Sinfi: {oquvchi.Sinf}; Bahosi: {(int) oquvchi.Baho}.");
-                }
+               Console.WriteLine($"Nomi: {car.CarName} {car.Model}, Narxi: {car.Price}$");
             }
-        }
-    }
-
-    class Oquvchi
-    {
-        public Guid Id {get; set;}
-        public string Ism {get; set;}
-        public string Familya {get; set;}
-        public int Sinf {get; set;}
-        public Baholar Baho {get; set;}
-        
-        public Oquvchi (string ismi, string familyasi, int sinfi, Baholar bahosi)
-        {
-            Id = Guid.NewGuid();
-            Ism = ismi;
-            Familya = familyasi;
-            Sinf = sinfi;
-            Baho = bahosi;
+            else 
+            {
+                Console.WriteLine("-------");
+            }
         }
     }
 }
