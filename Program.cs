@@ -23,6 +23,10 @@ class Program
             {
                 Console.WriteLine($"{bokschi.Name} {bokschi.Surname}, {bokschi.Age} yoshda, {bokschi.Weight} kg, {bokschi.Id} id");
             }
+            else
+            {
+                Console.WriteLine("-------");
+            }
         }
         Console.WriteLine(" ");
 
@@ -33,6 +37,10 @@ class Program
             {
                 Console.WriteLine($"{bokschi.Name} {bokschi.Surname}, {bokschi.Age} yoshda, {bokschi.Weight} kg, {bokschi.Id} id");
             }
+            else
+            {
+                Console.WriteLine("-------");
+            }
         }
         Console.WriteLine(" ");
 
@@ -42,6 +50,10 @@ class Program
             if (bokschi.Weight > 76)
             {
                 Console.WriteLine($"{bokschi.Name} {bokschi.Surname}, {bokschi.Age} yoshda, {bokschi.Weight} kg, {bokschi.Id} id");
+            }
+            else
+            {
+                Console.WriteLine("-------");
             }
         }
     }
